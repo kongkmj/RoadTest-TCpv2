@@ -32,7 +32,7 @@
                     <div class="panel-heading">
                         <div class="row">
                             <div class="col-xs-3">
-                                <i class="fa fa-sitemap fa-5x"></i>
+                                <i class="fa fa-sitemap fa-3x"></i>
                             </div>
                             <div class="col-xs-9 text-right">
                                 <div class="huge">40</div>
@@ -50,11 +50,11 @@
                 </div>
             </div>
             <div class="col-lg-3 col-md-6">
-                <div class="panel panel-yellow">
+                <div class="panel panel-primary">
                     <div class="panel-heading">
                         <div class="row">
                             <div class="col-xs-3">
-                                <i class="fa fa-rss-square fa-5x"></i>
+                                <i class="fa fa-rss-square fa-3x"></i>
                             </div>
                             <div class="col-xs-9 text-right">
                                 <div class="huge">30</div>
@@ -76,7 +76,7 @@
                     <div class="panel-heading">
                         <div class="row">
                             <div class="col-xs-3">
-                                <i class="glyphicon glyphicon-exclamation-sign fa-5x"></i>
+                                <i class="glyphicon glyphicon-exclamation-sign fa-3x"></i>
                             </div>
                             <div class="col-xs-9 text-right">
                                 <div class="huge">13</div>
@@ -104,12 +104,12 @@
                         <div class="row">
                             <div class="col-xs-3">
                               <div id ="test3">
-                                <i class="glyphicon glyphicon-cog fa-5x"></i>
+                                <i class="glyphicon glyphicon-cog fa-3x"></i>
                             </div>
                           </div>
                             <div class="col-xs-9 text-center">
-                                <div id="test6"class="huge">측정</div>
-
+                                <div id="test6"class="huge1">측정</div>
+                                <div id="test8">&nbsp;</div>
                             </div>
                         </div>
                     </div>
@@ -324,6 +324,7 @@
         var check_text = $("#test6");
         var check_click= $("#BTN");
         var alert_text = $("#test7");
+        var space_text = $("#test8");
         var startbnt=0;
         var rule1,rule2;
         var eval1 =0,eval2=0;
@@ -345,7 +346,8 @@
             check_icon.addClass("fa fa-history")
             alert_text.text("");
             check_text.text(" 측정 중입니다...");
-            check_text.removeClass("huge");
+            space_text.add();
+            check_text.removeClass("huge2");
             check_text.addClass("huge1");
 
           });
@@ -367,7 +369,7 @@
           if((rule1+100)<=accdata1||(rule2+100)<=accdata2){
             if(accdata1>(rule1+150)&&accdata2<(rule2+150)){
               check_text.text("위험");
-              alert_text.text("1번 도로");
+              alert_text.text("기준치 잡기");
               check_color.removeClass("panel-ready");
               check_color.removeClass("panel-green");
               check_color.removeClass("panel-yellow");
@@ -381,7 +383,7 @@
             }
             if(accdata1<=(rule1+150)&&accdata2>=(rule2+150)){
               check_text.text("위험");
-              alert_text.text("2번 도로");
+              alert_text.text("기준치 잡기");
               check_color.removeClass("panel-ready");
               check_color.removeClass("panel-green");
               check_color.removeClass("panel-yellow");
@@ -395,7 +397,7 @@
             }
             if(accdata1>=(rule1+150)&&accdata2>=(rule2+150)){
               check_text.text("위험");
-              alert_text.text("1번 도로 2번도로");
+              alert_text.text("기준치 잡기");
               check_color.removeClass("panel-ready");
               check_color.removeClass("panel-green");
               check_color.removeClass("panel-yellow");
@@ -409,7 +411,7 @@
             }
             else if(accdata1>=(rule1+100)&&accdata1<=(rule1+150)&&accdata2>=(rule2+100)&&accdata2<=(rule2+150)){
               check_text.text("주의");
-              alert_text.text("");
+              alert_text.text("기준치 잡기");
               check_color.removeClass("panel-ready");
               check_color.removeClass("panel-green");
               check_color.removeClass("panel-yellow");
@@ -423,7 +425,7 @@
             }
             else if(accdata1>=(rule1+100)&&accdata1<=(rule1+150)&&accdata2<=(rule2+100)){
               check_text.text("주의");
-              alert_text.text("");
+              alert_text.text("기준치 잡기");
               check_color.removeClass("panel-ready");
               check_color.removeClass("panel-green");
               check_color.removeClass("panel-yellow");
@@ -437,7 +439,7 @@
             }
             else if(accdata1<=(rule1+100)&&accdata2>=(rule2+100)&&accdata2<=(rule2+150)){
               check_text.text("주의");
-              alert_text.text("");
+              alert_text.text("기준치 잡기");
               check_color.removeClass("panel-ready");
               check_color.removeClass("panel-green");
               check_color.removeClass("panel-yellow");
@@ -453,8 +455,10 @@
           else if((rule1+100)>=accdata1&&(rule2+100)>=accdata2)
           {
             check_text.text("양호");
+            alert_text.text("기준치 잡기")
+            space_text.remove();
             check_text.removeClass("huge1");
-            check_text.addClass("huge");
+            check_text.addClass("huge2");
             check_color.removeClass("panel-ready");
             check_color.removeClass("panel-yellow");
             check_color.removeClass("panel-red");
