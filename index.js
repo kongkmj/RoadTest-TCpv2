@@ -14,10 +14,25 @@ var server = net.createServer(function (socket) {
 
   //client로 부터 오는 data 출력
   socket.on('data',function (data) {
-    var data2 = data;
-    var data3 = data2 -0;
-    console.log(data3);
-    io.emit('chat message',data3);
+    //문자열 추출
+    //console.log(data);
+    var a= ""+data;
+    console.log(a);
+    var datanumber = a.indexOf(",");
+    console.log(datanumber);
+    var c = a.substring(0,datanumber);
+    var b = a.substring(datanumber+1);
+    console.log(c);
+    console.log(b);
+    var data2 = c-0;
+    var data3 = b-0;
+
+
+      data4= data2;
+      data5= data3;
+    
+    //console.log(data3);
+    io.emit('chat message',data4,data5);
   });
 
   //client와 접속이 끊겻을때
